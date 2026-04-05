@@ -56,10 +56,10 @@ export function Header() {
                 {navigationData.contact.email}
               </a>
             </div>
-            <div className="hidden lg:flex items-center gap-6">
-              <div className="flex items-center gap-2">
-                <MapPin className="h-4 w-4" />
-                {navigationData.contact.addresses[0]}
+            <div className="hidden xl:flex items-center gap-6">
+              <div className="flex items-center gap-2 text-xs">
+                <MapPin className="h-3.5 w-3.5 flex-shrink-0" />
+                <span className="truncate max-w-[400px]">{navigationData.contact.addresses[0]}</span>
               </div>
               <div className="flex items-center gap-3 border-l border-white/20 pl-6 h-4">
                 <a
@@ -93,32 +93,32 @@ export function Header() {
           isScrolled && "shadow-lg"
         )}
       >
-        <div className="w-full max-w-[1600px] mx-auto px-4 lg:px-8">
-          <div className="flex items-center justify-between h-[80px]">
+        <div className="w-full max-w-[1600px] mx-auto px-3 lg:px-6">
+          <div className="flex items-center justify-between h-[72px]">
             {/* LEFT SIDE : LOGO + NAV */}
-            <div className="flex items-center gap-2 xl:gap-8 grow">
+            <div className="flex items-center gap-1 lg:gap-3 xl:gap-6 grow">
               {/* LOGO */}
-             <Link href="/" className="flex flex-shrink-0 items-center gap-3 mr-2 lg:mr-4">
+             <Link href="/" className="flex flex-shrink-0 items-center gap-2 mr-1 lg:mr-2 xl:mr-4">
   <Image
     src="/logo.jpg"
     alt="Company Logo"
-    width={48}
-    height={48}
-    className="object-contain"
+    width={36}
+    height={36}
+    className="object-contain lg:w-9 lg:h-9 xl:w-11 xl:h-11"
     priority
   />
   <div>
-    <h1 className="text-lg font-semibold leading-tight whitespace-nowrap">
+    <h1 className="text-sm lg:text-[15px] xl:text-lg font-semibold leading-tight whitespace-nowrap">
       {navigationData.logo.name}
     </h1>
-    <p className="text-xs text-primary font-medium whitespace-nowrap">
+    <p className="text-[10px] xl:text-xs text-primary font-medium whitespace-nowrap">
       {navigationData.logo.tagline}
     </p>
   </div>
 </Link>
 
               {/* DESKTOP NAV */}
-              <nav className="hidden lg:flex items-center gap-0.5 2xl:gap-1">
+              <nav className="hidden lg:flex items-center gap-0 xl:gap-0.5">
                 {navigationData.navLinks.map((link) => (
                   link.name !== "Contact Us" && (
                   <div
@@ -132,20 +132,20 @@ export function Header() {
                     <Link
                       href={link.href}
                       className={cn(
-                        "flex items-center gap-1 px-2 py-2 text-[13px] 2xl:text-sm font-medium rounded-md transition-colors whitespace-nowrap",
+                        "flex items-center gap-0.5 px-1.5 py-1.5 text-[11px] xl:text-[13px] font-medium rounded-md transition-colors whitespace-nowrap",
                         "hover:bg-secondary hover:text-secondary-foreground",
                         activeDropdown === link.name &&
                           "bg-secondary text-secondary-foreground"
                       )}
                     >
                       {link.name === "Calculator" && (
-                        <Calculator className="h-4 w-4 mr-1" />
+                        <Calculator className="h-3.5 w-3.5 xl:h-4 xl:w-4 mr-0.5" />
                       )}
                       {link.name}
                       {link.hasDropdown && (
                         <ChevronDown
                           className={cn(
-                            "h-4 w-4 transition-transform",
+                            "h-3 w-3 xl:h-4 xl:w-4 transition-transform",
                             activeDropdown === link.name && "rotate-180"
                           )}
                         />
@@ -193,8 +193,8 @@ export function Header() {
             </div>
 
             {/* RIGHT SIDE : CTA + MOBILE */}
-            <div className="flex items-center gap-2 shrink-0 lg:ml-2">
-              <Button asChild variant="default" className="hidden lg:inline-flex bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-4 lg:px-6 rounded-md whitespace-nowrap">
+            <div className="flex items-center gap-1 xl:gap-2 shrink-0 lg:ml-1 xl:ml-2">
+              <Button asChild variant="default" className="hidden lg:inline-flex bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-[11px] xl:text-sm px-3 xl:px-5 py-1.5 rounded-md whitespace-nowrap">
                 <Link href="/contact">Contact Us</Link>
               </Button>
               <button
