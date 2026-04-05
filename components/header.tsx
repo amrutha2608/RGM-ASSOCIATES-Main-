@@ -39,48 +39,48 @@ export function Header() {
       {/* TOP BAR */}
       <div className="bg-primary text-primary-foreground h-[40px] flex items-center">
         <div className="w-full max-w-[1600px] mx-auto px-4 lg:px-8">
-          <div className="flex items-center justify-between text-sm py-2">
-            <div className="hidden md:flex items-center gap-6">
+          <div className="flex items-center justify-between w-full text-[10px] md:text-xs py-2">
+            <div className="flex items-center gap-2 md:gap-4 lg:gap-6">
               <a
                 href={`tel:${navigationData.contact.phone}`}
-                className="flex items-center gap-2 hover:text-white/80 transition-colors"
+                className="flex items-center gap-1.5 hover:text-white/80 transition-colors whitespace-nowrap"
               >
-                <Phone className="h-4 w-4" />
-                {navigationData.contact.phone}
+                <Phone className="h-3.5 w-3.5 md:h-4 md:w-4" />
+                <span>{navigationData.contact.phone}</span>
               </a>
               <a
                 href={`mailto:${navigationData.contact.email}`}
-                className="flex items-center gap-2 hover:text-white/80 transition-colors"
+                className="hidden xl:flex items-center gap-1.5 hover:text-white/80 transition-colors whitespace-nowrap"
               >
-                <Mail className="h-4 w-4" />
-                {navigationData.contact.email}
+                <Mail className="h-3.5 w-3.5 md:h-4 md:w-4" />
+                <span>{navigationData.contact.email}</span>
               </a>
+              <div className="hidden md:flex items-center gap-1.5 whitespace-nowrap max-w-[300px] lg:max-w-none overflow-hidden">
+                <MapPin className="h-3.5 w-3.5 md:h-4 md:w-4 flex-shrink-0" />
+                <span className="truncate" title={navigationData.contact.addresses[0]}>
+                  {navigationData.contact.addresses[0]}
+                </span>
+              </div>
             </div>
-            <div className="hidden xl:flex items-center gap-6">
-              <div className="flex items-center gap-2 text-xs">
-                <MapPin className="h-3.5 w-3.5 flex-shrink-0" />
-                <span className="truncate max-w-[400px]">{navigationData.contact.addresses[0]}</span>
-              </div>
-              <div className="flex items-center gap-3 border-l border-white/20 pl-6 h-4">
-                <a
-                  href={navigationData.socialLinks.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white/80 transition-colors"
-                  aria-label="Facebook"
-                >
-                  <Facebook className="h-4 w-4" />
-                </a>
-                <a
-                  href={navigationData.socialLinks.twitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white/80 transition-colors"
-                  aria-label="Twitter"
-                >
-                  <Twitter className="h-4 w-4" />
-                </a>
-              </div>
+            <div className="hidden xl:flex items-center gap-3 border-l border-white/20 pl-4 lg:pl-6 h-4">
+              <a
+                href={navigationData.socialLinks.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white/80 transition-colors"
+                aria-label="Facebook"
+              >
+                <Facebook className="h-4 w-4" />
+              </a>
+              <a
+                href={navigationData.socialLinks.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white/80 transition-colors"
+                aria-label="Twitter"
+              >
+                <Twitter className="h-4 w-4" />
+              </a>
             </div>
           </div>
         </div>
@@ -96,9 +96,9 @@ export function Header() {
         <div className="w-full max-w-[1600px] mx-auto px-3 lg:px-6">
           <div className="flex items-center justify-between h-[72px]">
             {/* LEFT SIDE : LOGO + NAV */}
-            <div className="flex items-center gap-1 lg:gap-3 xl:gap-6 grow">
+            <div className="flex items-center gap-1 lg:gap-2 xl:gap-4 grow overflow-hidden">
               {/* LOGO */}
-             <Link href="/" className="flex flex-shrink-0 items-center gap-2 mr-1 lg:mr-2 xl:mr-4">
+             <Link href="/" className="flex flex-shrink-0 items-center gap-2 mr-2 lg:mr-4 xl:mr-6">
   <Image
     src="/logo.jpg"
     alt="Company Logo"
@@ -118,7 +118,7 @@ export function Header() {
 </Link>
 
               {/* DESKTOP NAV */}
-              <nav className="hidden lg:flex items-center gap-0 xl:gap-0.5">
+              <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1.5 flex-wrap lg:flex-nowrap">
                 {navigationData.navLinks.map((link) => (
                   link.name !== "Contact Us" && (
                   <div
@@ -132,7 +132,7 @@ export function Header() {
                     <Link
                       href={link.href}
                       className={cn(
-                        "flex items-center gap-0.5 px-1.5 py-1.5 text-[11px] xl:text-[13px] font-medium rounded-md transition-colors whitespace-nowrap",
+                        "flex items-center gap-0.5 px-1 py-1.5 xl:px-2 text-[10px] xl:text-[13px] font-medium rounded-md transition-colors whitespace-nowrap",
                         "hover:bg-secondary hover:text-secondary-foreground",
                         activeDropdown === link.name &&
                           "bg-secondary text-secondary-foreground"
@@ -193,7 +193,7 @@ export function Header() {
             </div>
 
             {/* RIGHT SIDE : CTA + MOBILE */}
-            <div className="flex items-center gap-1 xl:gap-2 shrink-0 lg:ml-1 xl:ml-2">
+            <div className="flex items-center gap-1 xl:gap-2 shrink-0 lg:ml-4 xl:ml-6">
               <Button asChild variant="default" className="hidden lg:inline-flex bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-[11px] xl:text-sm px-3 xl:px-5 py-1.5 rounded-md whitespace-nowrap">
                 <Link href="/contact">Contact Us</Link>
               </Button>

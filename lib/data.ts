@@ -126,7 +126,7 @@ export const navigationData = {
     phoneHours: "Mon - Sat, 9.30AM - 6PM",
     email: "camanish@rgmassociates.co.in",
     addresses: [
-      "Flat no 403, 4th Floor, Kanaka Surya Towers, OPP Maharaja Bank, Dwaraka Nagar 3rd Lane, Visakhapatnam - 530016",
+      "Flat no 403, 4th Floor, Kanaka Surya Towers, OPP Maharaja Bank, Dwaraka Nagar 3rd Lane, Visakhapatnam",
       "Cyber Space Apartments,Puppalaguda, Manikonda,ph.No- + 91 988 519 4491, Hyderabad- 500089",
       "0-1-181, Above My Kalyan, Opp Navata Transport,Mydukuru Road, Badvel, Andhra Pradesh – 516227."
     ]
