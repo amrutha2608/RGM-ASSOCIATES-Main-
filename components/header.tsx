@@ -50,19 +50,19 @@ export function Header() {
               </a>
               <a
                 href={`mailto:${navigationData.contact.email}`}
-                className="hidden xl:flex items-center gap-1.5 hover:text-white/80 transition-colors whitespace-nowrap"
+                className="hidden lg:flex items-center gap-1.5 hover:text-white/80 transition-colors whitespace-nowrap"
               >
                 <Mail className="h-3.5 w-3.5 md:h-4 md:w-4" />
                 <span>{navigationData.contact.email}</span>
               </a>
-              <div className="hidden md:flex items-center gap-1.5 whitespace-nowrap max-w-[300px] lg:max-w-none overflow-hidden">
+            </div>
+            <div className="hidden lg:flex items-center gap-1.5 whitespace-nowrap max-w-[250px] xl:max-w-[450px] 2xl:max-w-none overflow-hidden">
                 <MapPin className="h-3.5 w-3.5 md:h-4 md:w-4 flex-shrink-0" />
                 <span className="truncate" title={navigationData.contact.addresses[0]}>
                   {navigationData.contact.addresses[0]}
                 </span>
               </div>
-            </div>
-            <div className="hidden xl:flex items-center gap-3 border-l border-white/20 pl-4 lg:pl-6 h-4">
+            <div className="hidden 2xl:flex items-center gap-3 border-l border-white/20 pl-4 lg:pl-6 h-4">
               <a
                 href={navigationData.socialLinks.facebook}
                 target="_blank"
