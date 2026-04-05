@@ -96,7 +96,7 @@ export function Header() {
         <div className="w-full max-w-[1600px] mx-auto px-3 lg:px-6">
           <div className="flex items-center justify-between h-[72px]">
             {/* LEFT SIDE : LOGO + NAV */}
-            <div className="flex items-center gap-1 lg:gap-2 xl:gap-4 grow overflow-hidden">
+            <div className="flex items-center gap-1 lg:gap-2 xl:gap-4 overflow-hidden">
               {/* LOGO */}
              <Link href="/" className="flex flex-shrink-0 items-center gap-2 mr-2 lg:mr-4 xl:mr-6">
   <Image
@@ -193,8 +193,8 @@ export function Header() {
             </div>
 
             {/* RIGHT SIDE : CTA + MOBILE */}
-            <div className="flex items-center gap-1 xl:gap-2 shrink-0 lg:ml-4 xl:ml-6">
-              <Button asChild variant="default" className="hidden lg:inline-flex bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-[11px] xl:text-sm px-3 xl:px-5 py-1.5 rounded-md whitespace-nowrap">
+            <div className="flex items-center gap-1 xl:gap-2 shrink-0 ml-auto lg:ml-12 xl:ml-20">
+              <Button asChild variant="default" className="hidden lg:inline-flex bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-[11px] xl:text-sm px-4 xl:px-6 py-2 rounded-md whitespace-nowrap">
                 <Link href="/contact">Contact Us</Link>
               </Button>
               <button
