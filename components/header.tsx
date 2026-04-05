@@ -118,7 +118,7 @@ export function Header() {
 </Link>
 
               {/* DESKTOP NAV */}
-              <nav className="hidden xl:flex items-center gap-0.5 2xl:gap-1">
+              <nav className="hidden lg:flex items-center gap-0.5 2xl:gap-1">
                 {navigationData.navLinks.map((link) => (
                   link.name !== "Contact Us" && (
                   <div
@@ -194,11 +194,11 @@ export function Header() {
 
             {/* RIGHT SIDE : CTA + MOBILE */}
             <div className="flex items-center gap-2 shrink-0 lg:ml-2">
-              <Button asChild variant="default" className="hidden xl:inline-flex bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-4 xl:px-6 rounded-md whitespace-nowrap">
+              <Button asChild variant="default" className="hidden lg:inline-flex bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-4 lg:px-6 rounded-md whitespace-nowrap">
                 <Link href="/contact">Contact Us</Link>
               </Button>
               <button
-                className="xl:hidden p-2 rounded-md hover:bg-secondary"
+                className="lg:hidden p-2 rounded-md hover:bg-secondary"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               >
                 {mobileMenuOpen ? <X /> : <Menu />}
@@ -210,7 +210,7 @@ export function Header() {
 
       {/* MOBILE MENU */}
       {mobileMenuOpen && (
-        <div className="xl:hidden bg-background border-t shadow-lg">
+        <div className="lg:hidden bg-background border-t shadow-lg">
           <div className="container mx-auto px-4 py-4 space-y-2">
             {navigationData.navLinks.map((link) => (
               <div key={link.name}>

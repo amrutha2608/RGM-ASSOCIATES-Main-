@@ -386,20 +386,27 @@ export default function ContactPage() {
 
             <div className="grid md:grid-cols-2 gap-8">
               {/* Visakhapatnam Office */}
-              <div className="bg-card rounded-2xl border border-border overflow-hidden">
-                <div className="aspect-video bg-secondary relative">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <MapPin className="h-12 w-12 text-primary mx-auto mb-2" />
-                      <p className="text-muted-foreground">Visakhapatnam Office Map</p>
-                    </div>
-                  </div>
+              <div className="bg-card rounded-2xl border border-border overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <div className="w-full h-64">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3800.5!2d83.3132!3d17.7231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a395b90c47c8b5f%3A0x1f1a5e5c3e2b0f4c!2sKanaka%20Surya%20Towers!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Visakhapatnam Office Map"
+                  />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-foreground mb-2">
-                    Visakhapatnam Office
-                  </h3>
-                  <p className="text-muted-foreground mb-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
+                    <h3 className="text-xl font-semibold text-foreground">
+                      Visakhapatnam Office
+                    </h3>
+                  </div>
+                  <p className="text-muted-foreground mb-4 pl-7">
                     {navigationData.contact.addresses[0]}
                   </p>
                   <Button
@@ -419,21 +426,28 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Badvel Office */}
-              <div className="bg-card rounded-2xl border border-border overflow-hidden">
-                <div className="aspect-video bg-secondary relative">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <MapPin className="h-12 w-12 text-primary mx-auto mb-2" />
-                      <p className="text-muted-foreground">Hyderabad Office Map</p>
-                    </div>
-                  </div>
+              {/* Hyderabad Office */}
+              <div className="bg-card rounded-2xl border border-border overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <div className="w-full h-64">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.0!2d78.3674!3d17.3850!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93add1a3c9b7%3A0x6c4e4f2b7b3e1a5d!2sPuppalaguda%2C%20Hyderabad!5e0!3m2!1sen!2sin!4v1680000000001!5m2!1sen!2sin"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Hyderabad Office Map"
+                  />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-foreground mb-2">
-                    Hyderabad Office
-                  </h3>
-                  <p className="text-muted-foreground mb-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
+                    <h3 className="text-xl font-semibold text-foreground">
+                      Hyderabad Office
+                    </h3>
+                  </div>
+                  <p className="text-muted-foreground mb-4 pl-7">
                     {navigationData.contact.addresses[1]}
                   </p>
                   <Button
@@ -442,7 +456,7 @@ export default function ContactPage() {
                     className="border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
                   >
                     <a
-                      href="https://www.google.com/maps/dir/?api=1&destination=Cyber+Space+Apartments+Puppalaguda+Hyderabad" 
+                      href="https://www.google.com/maps/dir/?api=1&destination=Cyber+Space+Apartments+Puppalaguda+Hyderabad"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -452,20 +466,29 @@ export default function ContactPage() {
                   </Button>
                 </div>
               </div>
-              <div className="bg-card rounded-2xl border border-border overflow-hidden">
-                <div className="aspect-video bg-secondary relative">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <MapPin className="h-12 w-12 text-primary mx-auto mb-2" />
-                      <p className="text-muted-foreground">Badvel Office Map</p>
-                    </div>
-                  </div>
+
+              {/* Badvel Office */}
+              <div className="bg-card rounded-2xl border border-border overflow-hidden shadow-sm hover:shadow-md transition-shadow md:col-span-2">
+                <div className="w-full h-64">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3845.0!2d79.0667!3d14.7333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb5e3d6b7a9c3bf%3A0x5a2a8d6c4e1f2b3a!2sBadvel%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1680000000002!5m2!1sen!2sin"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Badvel Office Map"
+                  />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-foreground mb-2">
-                  Badvel Office
-                  </h3>
-                  <p className="text-muted-foreground mb-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
+                    <h3 className="text-xl font-semibold text-foreground">
+                      Badvel Office
+                    </h3>
+                  </div>
+                  <p className="text-muted-foreground mb-4 pl-7">
                     {navigationData.contact.addresses[2]}
                   </p>
                   <Button
