@@ -264,6 +264,8 @@ export const navigationData = {
       ]
     },
     { name: "News & Updates", href: "/news" },
+    { name: "Blog", href: "/blog" },
+    { name: "Calculator", href: "/calculator" },
     { name: "Contact Us", href: "/contact" }
   ]
 };
