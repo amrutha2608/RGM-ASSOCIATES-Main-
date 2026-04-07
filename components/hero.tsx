@@ -15,24 +15,14 @@ import Image from "next/image";
 
 const slides = [
   {
-    type: "image", // can be "video" or "image"
+    type: "image",
     image: "/graphics/slide1_3d.png",
-    video: "/videos/slide1.mp4", // Replace with your actual video path when ready
+    video: "/videos/slide1.mp4",
     titlePrimary: "Statutory",
     titleSecondary: "Compliance",
     subtitle: "Ensure statutory compliance, financial transparency, and accurate reporting through statutory compliance services under one roof.",
     buttonLabel: "Our Services",
     buttonHref: "/services/compliance"
-  },
-  {
-    type: "image",
-    image: "/graphics/slide2_3d.png",
-    video: "/videos/slide2.mp4",
-    titlePrimary: "Tax & Advisory",
-    titleSecondary: "Services",
-    subtitle: "Expert financial and tax advisory to help your growing business navigate complex regulations and grow sustainably.",
-    buttonLabel: "Our Services",
-    buttonHref: "/services/taxation"
   },
   {
     type: "image",
@@ -46,13 +36,13 @@ const slides = [
   },
   {
     type: "image",
-    image: "/graphics/slide4_3d.png",
-    video: "/videos/slide4.mp4",
-    titlePrimary: "International",
-    titleSecondary: "Taxation",
-    subtitle: "Navigate cross-border financial complexities with our expert international taxation and advisory services.",
+    image: "/graphics/slide2_3d.png",
+    video: "/videos/slide2.mp4",
+    titlePrimary: "Tax & Advisory",
+    titleSecondary: "Services",
+    subtitle: "Expert financial and tax advisory to help your growing business navigate complex regulations and grow sustainably.",
     buttonLabel: "Our Services",
-    buttonHref: "/services/international-taxation"
+    buttonHref: "/services/taxation"
   }
 ];
 

@@ -37,7 +37,7 @@ export function Header() {
   return (
     <header className="sticky top-0 left-0 right-0 z-50">
       {/* TOP BAR */}
-      <div className="bg-primary text-primary-foreground h-[40px] flex items-center">
+      <div className="bg-gradient-to-r from-[#03045E] via-[#023E8A] to-[#0077B6] text-primary-foreground h-[40px] flex items-center shadow-inner">
         <div className="w-full max-w-[1600px] mx-auto px-4 lg:px-8">
           <div className="flex items-center justify-between w-full text-[10px] md:text-xs py-2">
             <div className="flex items-center gap-2 md:gap-4 lg:gap-6">
@@ -95,30 +95,30 @@ export function Header() {
       >
         <div className="w-full max-w-[1600px] mx-auto px-3 lg:px-6">
           <div className="flex items-center justify-between h-[72px]">
-            {/* LEFT SIDE : LOGO + NAV */}
-            <div className="flex items-center gap-1 lg:gap-2 xl:gap-4 overflow-hidden">
-              {/* LOGO */}
-             <Link href="/" className="flex flex-shrink-0 items-center gap-2 mr-2 lg:mr-4 xl:mr-6">
-  <Image
-    src="/logo.jpg"
-    alt="Company Logo"
-    width={36}
-    height={36}
-    className="object-contain lg:w-9 lg:h-9 xl:w-11 xl:h-11"
-    priority
-  />
-  <div>
-    <h1 className="text-sm lg:text-[15px] xl:text-lg font-semibold leading-tight whitespace-nowrap">
-      {navigationData.logo.name}
-    </h1>
-    <p className="text-[10px] xl:text-xs text-primary font-medium whitespace-nowrap">
-      {navigationData.logo.tagline}
-    </p>
-  </div>
-</Link>
+            {/* LEFT SIDE : LOGO */}
+            <Link href="/" className="flex flex-shrink-0 items-center gap-2 mr-4 xl:mr-8 transition-transform hover:scale-[1.02]">
+              <Image
+                src="/logo.jpg"
+                alt="Company Logo"
+                width={36}
+                height={36}
+                className="object-contain lg:w-9 lg:h-9 xl:w-11 xl:h-11"
+                priority
+              />
+              <div>
+                <h1 className="text-[13px] lg:text-[14px] xl:text-lg font-semibold leading-tight whitespace-nowrap">
+                  {navigationData.logo.name}
+                </h1>
+                <p className="hidden xl:block text-xs text-primary font-medium whitespace-nowrap">
+                  {navigationData.logo.tagline}
+                </p>
+              </div>
+            </Link>
 
+            {/* RIGHT SIDE : NAV + CTA */}
+            <div className="flex items-center gap-1 xl:gap-6 ml-auto lg:overflow-visible">
               {/* DESKTOP NAV */}
-              <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1.5 flex-wrap lg:flex-nowrap">
+              <nav className="hidden lg:flex items-center gap-0.5 xl:gap-2">
                 {navigationData.navLinks.map((link) => (
                   link.name !== "Contact Us" && (
                   <div
@@ -129,34 +129,31 @@ export function Header() {
                     }
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
-                    <Link
-                      href={link.href}
-                      className={cn(
-                        "flex items-center gap-0.5 px-1 py-1.5 xl:px-2 text-[10px] xl:text-[13px] font-medium rounded-md transition-colors whitespace-nowrap",
-                        "hover:bg-secondary hover:text-secondary-foreground",
-                        activeDropdown === link.name &&
-                          "bg-secondary text-secondary-foreground"
-                      )}
-                    >
-                      {link.name === "Calculator" && (
-                        <Calculator className="h-3.5 w-3.5 xl:h-4 xl:w-4 mr-0.5" />
-                      )}
-                      {link.name}
-                      {link.hasDropdown && (
-                        <ChevronDown
-                          className={cn(
-                            "h-3 w-3 xl:h-4 xl:w-4 transition-transform",
-                            activeDropdown === link.name && "rotate-180"
-                          )}
-                        />
-                      )}
-                    </Link>
+                    {link.hasDropdown ? (
+                      <button className="flex items-center gap-0.5 px-1.5 xl:px-3 py-2 text-[12px] xl:text-[14px] font-medium text-foreground hover:text-primary transition-colors whitespace-nowrap group">
+                        {link.name === "Calculator" && (
+                          <Calculator className="h-3.5 w-3.5 xl:h-4 xl:w-4 mr-0.5" />
+                        )}
+                        {link.name}
+                        <ChevronDown className={cn("h-3 w-3 transition-transform duration-200", activeDropdown === link.name && "rotate-180")} />
+                      </button>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className="flex items-center gap-0.5 px-1.5 xl:px-3 py-2 text-[12px] xl:text-[14px] font-medium text-foreground hover:text-primary transition-colors whitespace-nowrap"
+                      >
+                        {link.name === "Calculator" && (
+                          <Calculator className="h-3.5 w-3.5 xl:h-4 xl:w-4 mr-0.5" />
+                        )}
+                        {link.name}
+                      </Link>
+                    )}
 
                     {/* MEGA MENU */}
                     {link.hasDropdown && activeDropdown === link.name && (
                       <div className={cn(
                         "absolute top-full pt-3 z-50",
-                        link.name === "Outsourcing & CFO" ? "right-0" : "left-0"
+                        link.name === "Outsourcing" ? "right-0" : "left-0"
                       )}>
                         <div className="bg-background border rounded-lg shadow-xl p-6 min-w-[800px]">
                           <div className={cn(
@@ -189,21 +186,17 @@ export function Header() {
                   </div>
                   )
                 ))}
-              </nav>
-            </div>
-
-            {/* RIGHT SIDE : CTA + MOBILE */}
-            <div className="flex items-center gap-1 xl:gap-2 shrink-0 ml-auto lg:ml-12 xl:ml-20">
-              <Button asChild variant="default" className="hidden lg:inline-flex bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-[11px] xl:text-sm px-4 xl:px-6 py-2 rounded-md whitespace-nowrap">
-                <Link href="/contact">Contact Us</Link>
-              </Button>
-              <button
-                className="lg:hidden p-2 rounded-md hover:bg-secondary"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              >
-                {mobileMenuOpen ? <X /> : <Menu />}
-              </button>
-            </div>
+                </nav>
+                <Button asChild variant="default" className="hidden lg:inline-flex bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-[11px] xl:text-sm px-4 xl:px-6 py-2 rounded-md whitespace-nowrap ml-2 xl:ml-4">
+                  <Link href="/contact">Contact Us</Link>
+                </Button>
+                <button
+                  className="lg:hidden p-2 rounded-md hover:bg-secondary"
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                >
+                  {mobileMenuOpen ? <X /> : <Menu />}
+                </button>
+              </div>
           </div>
         </div>
       </div>
