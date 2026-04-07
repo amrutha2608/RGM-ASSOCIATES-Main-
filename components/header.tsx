@@ -78,14 +78,14 @@ export function Header() {
             </div>
           </Link>
 
-          {/* DESKTOP NAV SECTION */}
-          <div className="flex items-center gap-2 xl:gap-6">
+          {/* DESKTOP NAV SECTION (Relative for stable mega menu positioning) */}
+          <div className="flex items-center gap-2 xl:gap-6 relative">
             <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
               {navigationData.navLinks.map((link) => (
                 link.name !== "Contact Us" && (
                 <div
                   key={link.name}
-                  className="relative group"
+                  className="group"
                   onMouseEnter={() => link.hasDropdown && setActiveDropdown(link.name)}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
@@ -103,28 +103,28 @@ export function Header() {
                     </Link>
                   )}
 
-                  {/* MEGA MENU (Modern dark variant) */}
+                  {/* FULL-WIDTH STABLE MEGA MENU */}
                   {link.hasDropdown && activeDropdown === link.name && (
-                    <div className={cn(
-                      "absolute top-full pt-2 z-50",
-                      link.name === "Outsourcing & CFO" ? "right-0" : "left-0"
-                    )}>
-                      <div className="bg-[#111439] border border-white/10 rounded-xl shadow-2xl p-6 min-w-[850px]">
+                    <div className="absolute top-full right-0 mt-0 pt-3 z-50 transition-all duration-300 pointer-events-auto">
+                      <div className="bg-[#111439] border border-white/10 rounded-b-xl shadow-2xl p-8 w-[95vw] max-w-[1200px] xl:max-w-[1300px]">
                         <div className={cn(
-                          "grid gap-8",
-                          link.dropdownSections?.length === 4 ? "grid-cols-4" : "grid-cols-3"
+                          "grid gap-8 lg:gap-12",
+                          link.dropdownSections?.length === 4 
+                            ? "grid-cols-2 lg:grid-cols-4" 
+                            : "grid-cols-2 lg:grid-cols-3"
                         )}>
                           {link.dropdownSections?.map((section, idx) => (
-                            <div key={idx}>
-                              <h3 className="text-[11px] font-bold text-white/40 mb-3 uppercase tracking-widest">
+                            <div key={idx} className="space-y-4">
+                              <h3 className="text-xs font-bold text-white/40 uppercase tracking-[0.15em] border-b border-white/5 pb-2">
                                 {section.title}
                               </h3>
-                              <ul className="space-y-1.5">
+                              <ul className="space-y-2">
                                 {section.items.map((item, i) => (
                                   <li key={i}>
                                     <Link
                                       href={item.href}
-                                      className="block text-sm text-white/80 hover:text-white hover:pl-1 transition-all py-1 border-l border-transparent hover:border-white/20 pl-0"
+                                      className="block text-[15px] text-white/80 hover:text-white hover:pl-2 transition-all py-0.5"
+                                      onClick={() => setActiveDropdown(null)}
                                     >
                                       {item.name}
                                     </Link>
@@ -133,6 +133,10 @@ export function Header() {
                               </ul>
                             </div>
                           ))}
+                        </div>
+                        {/* BOTTOM ACTIONS OR STRIP IF NEEDED */}
+                        <div className="mt-8 pt-6 border-t border-white/5 flex justify-end">
+                           <p className="text-[10px] text-white/30 uppercase tracking-widest font-medium">Expert CA Solutions & Advisory</p>
                         </div>
                       </div>
                     </div>
